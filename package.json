@@ -1,0 +1,16 @@
+{
+  "name": "ex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fuck": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "javascript-obfuscator": "^4.1.0",
+    "jsfuck": "^0.4.0"
+  }
+}
