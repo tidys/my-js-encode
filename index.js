@@ -23,11 +23,26 @@ function obf(data) {
     const encode = obfuscationResult.getObfuscatedCode();
     return encode;
 }
-function main(file) {
-    let data = readFileSync(join(__dirname, `./${file}.js`), "utf8");
-    data = obf(data);
-    data = obf(data);
-    // data = fuck(data);
-    writeFileSync(join(__dirname, `./${file}.en.js`), data, "utf8");
+function main(url, dest) {
+    (async function () {
+        const globby = require('globby');
+        const files = await globby([url]);
+        if (!files.length) {
+            console.log(`no find files :${url}`)
+            return;
+        }
+        const file = files[0];
+        console.log('find file: ', file);
+        let data = readFileSync(file, "utf8");
+        data = obf(data);
+        data = obf(data);
+        // data = fuck(data);
+        writeFileSync(dest || file, data, "utf8");
+        console.log('encode success!')
+    })();
 }
-main('1');
+let file = "";
+file = 'E:/proj-cocos/spine-340/build/web-mobile/assets/main/index.*.js';
+file = 'E:/proj-cocos/dragon-bones/build/web-mobile/2.4.10/assets/main/index.*.js'
+// file = join(__dirname, `./${file}.js`)
+main(file);

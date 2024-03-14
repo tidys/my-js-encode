@@ -4,12 +4,12 @@
   "description": "",
   "main": "1.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "fuck": "node index.js"
+    "encode": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "globby": "10.0.0",
     "javascript-obfuscator": "^4.1.0",
     "jsfuck": "^0.4.0"
   }
